@@ -1,6 +1,7 @@
 <br/>
 <% post.comments && post.comments.forEach(function (comment, index) { %>
 	<p>
+		<img src="<%= comment.head %>" class="l_head" />
 		<a href="<%= comment.website %>">
 			<%= comment.name %>
 		</a>
