@@ -1,0 +1,12 @@
+[Thu Jul 31 2014 10:01:14 GMT+0800 (中国标准时间)] /favicon.ico
+Error: ENOENT, open 'c:\Program Files\nodejs\NodejsInAction\Chapter1\blog\node_modules\express\node_modules\connect\node_modules\public\favicon.ico'
+    at Error (native)
+[Thu Jul 31 2014 10:01:34 GMT+0800 (中国标准时间)] /favicon.ico
+Error: ENOENT, open 'c:\Program Files\nodejs\NodejsInAction\Chapter1\blog\node_modules\express\node_modules\connect\node_modules\public\favicon.ico'
+    at Error (native)
+[Thu Jul 31 2014 10:01:35 GMT+0800 (中国标准时间)] /favicon.ico
+Error: ENOENT, open 'c:\Program Files\nodejs\NodejsInAction\Chapter1\blog\node_modules\express\node_modules\connect\node_modules\public\favicon.ico'
+    at Error (native)
+[Thu Jul 31 2014 10:10:14 GMT+0800 (中国标准时间)] /favicon.ico
+Error: ENOENT, open 'c:\Program Files\nodejs\NodejsInAction\Chapter1\blog\node_modules\express\node_modules\connect\node_modules\public\favicon.ico'
+    at Error (native)

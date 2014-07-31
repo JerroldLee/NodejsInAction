@@ -3,7 +3,7 @@
 <% posts.forEach(function (post, index) { %>
   <p>
     <h2>
-      <a href="#"><%= post.title %></a>
+      <a href="/p/<%= post._id %>"><%= post.title %></a>
     </h2>
     <a href="/u/<%= post.name %>" title="">
       <img src="<%= post.head %>" alt="" clas="r_head">
