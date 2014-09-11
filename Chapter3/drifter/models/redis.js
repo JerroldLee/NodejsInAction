@@ -33,7 +33,7 @@ function throwOneBottle(bottle, callback) {
 					return callback({code: 0, msg: "过会儿再试试吧！"});
 				}
 				//设置漂流瓶生存期
-				client.EXPIRE(bottleId, 86400, function () {
+				client.EXPIRE(bottleId, 86400000 + bottle.time - Date.now(), function () {
 					//释放连接
 					pool.release(client);
 				});
