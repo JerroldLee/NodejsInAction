@@ -6,5 +6,8 @@
 		"redis": "*",
 		"node-uuid": "*",
 		"generic-pool": "*"
+	},
+	"devDependencies": {
+		"request": "*"
 	}
 }

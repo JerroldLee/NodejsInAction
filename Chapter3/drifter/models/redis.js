@@ -45,8 +45,55 @@ function throwOneBottle(bottle, callback) {
 	});
 }
 
+//捡一个漂流瓶
+function pickOneBottle(info, callback) {
+	var type = {
+		all: Math.round(Math.random()),
+		male: 0,
+		female: 1
+	};
+	info.type = info.type || 'all';
+	pool.acquire(function (err, client) {
+		if (err) {
+			return callback({code: 0, msg: err});
+		}
+		console.log('info.type:' + info.type);
+		//根据请求的瓶子类型到不同的数据库中取
+		client.SELECT(type[info.type], function () {
+			//随机返回一个漂流瓶id
+			client.RANDOMKEY(function (err, bottleId) {
+				if (err) {
+					return callback({code: 0, msg: err});
+				}
+				if (!bottleId) {
+					return callback({code: 0, msg: "大海空空如也..."});
+				}
+				//根据漂流瓶id取到漂流瓶完整信息
+				client.HGETALL(bottleId, function (err, bottle) {
+					if (err) {
+						return callback({code: 0, msg: "漂流瓶破损了..."});
+					}
+					//从redis中删除该漂流瓶
+					client.DEL(bottleId, function () {
+						//释放连接
+						pool.release(client);
+					});
+					//返回结果。成功时包含捡到的漂流瓶信息
+					callback({code: 1, msg: bottle});
+				});
+			});
+		});
+	});
+}
+
 exports.throw = function (bottle, callback) {
 	throwOneBottle(bottle, function (result) {
 		callback(result);
 	})
+}
+
+exports.pick = function (info, callback) {
+	pickOneBottle(info, function (result) {
+		callback(result);
+	});
 }
