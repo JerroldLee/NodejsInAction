@@ -5,7 +5,8 @@
 		"express": "^3",
 		"redis": "*",
 		"node-uuid": "*",
-		"generic-pool": "*"
+		"generic-pool": "*",
+		"mongoose": "*"
 	},
 	"devDependencies": {
 		"request": "*"
