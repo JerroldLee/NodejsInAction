@@ -43,4 +43,20 @@ app.get('/', function (req, res) {
 	});
 });
 
+//获取一个用户所有的漂流瓶
+//GET /user/nswbmw
+app.get('/user/:user', function (req, res) {
+	mongodb.getAll(req.params.user, function (result) {
+		res.json(result);
+	});
+});
+
+//获取特定id的漂流瓶
+//GET /bottle/529a8b5b39242c82417b43c3
+app.get('/bottle/:_id', function (req, res) {
+	mongodb.getOne(req.params._id, function (result) {
+		res.json(result);
+	});
+});
+
 app.listen(3000);
